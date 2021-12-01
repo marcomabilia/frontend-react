@@ -1,15 +1,19 @@
-import React from 'react'
-import './App.scss'
+import React, { useState } from "react";
 
-const App: React.FC = () => {
-	const logoMoovin =
-		'https://cdn.moovin.com.br/project/manager-panel/img/logo-moovin.svg'
+import messagesData from "./dados"
+import styles from "./App.scss"
+import Table from "./componentes/Table";
 
-	return (
-		<div className='App'>
-			<img alt='Logo da Moovin' src={logoMoovin} />
-		</div>
-	)
-}
+const App = () => {
+  
+  const [messages] = useState([...messagesData]);
+  return (
+    <main className={styles.container}>
+      <div className={styles.wrapper}>
+        <Table data={messages} rowsPerPage={9} />
+      </div>
+    </main>
+  );
+};
 
-export default App
+export default App;
